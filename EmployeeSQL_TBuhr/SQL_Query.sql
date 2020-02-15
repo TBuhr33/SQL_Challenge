@@ -55,15 +55,16 @@ and (last_name like 'B%');
 select Employees.emp_no, Employees.last_name, Employees.first_name, Departments.dept_name
 from Employees
 inner join Employee_Dept on Employees.emp_no = Employee_Dept.emp_no
-inner join Departments on Employee_Dept.dept_no
+inner join Departments on Employee_Dept.dept_no = Departments.dept_no
 where dept_name = 'Sales';
 
 select Employees.emp_no, Employees.last_name, Employees.first_name, Departments.dept_name
 from Employees
 inner join Employee_Dept on Employees.emp_no = Employee_Dept.emp_no
-inner join Departments on Employee_Dept.dept_no
+inner join Departments on Employee_Dept.dept_no = Departments.dept_no
 where dept_name in ('Sales', 'Development');
 
-select last_name, count(last_name) as name_frequency
+select last_name,
+count(last_name) as name_frequency
 from employees
 order by name_frequency DESC;
